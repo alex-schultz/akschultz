@@ -112,6 +112,7 @@ h2,
 .depth-title h3,
 .sub,
 .card h3,
+.project-grid h4,
 .principles h3,
 .interests dt {
   font-family: var(--font-display);
@@ -303,13 +304,18 @@ h2 {
   gap: 48px;
 }
 
-.portrait {
+.portrait,
+.featured-project img {
   display: block;
   width: 100%;
   height: auto;
+  border-radius: 14px;
+  pointer-events: none;
+}
+
+.portrait {
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 14px;
   border: 1px solid rgb(255 255 255 / 0.14);
 }
 
@@ -517,12 +523,18 @@ h1 .soft {
 }
 
 /* ---------- Cards ---------- */
-.project-grid {
+.featured-project {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(24px, 5vw, 64px);
+  margin-bottom: clamp(40px, 6vw, 72px);
+}
+.featured-project .section-head {
+  margin-bottom: 0;
 }
 
+.project-grid,
 .community-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -541,7 +553,8 @@ h1 .soft {
   font-size: 0.92rem;
   color: var(--accent);
 }
-.card h3 {
+.card h3,
+.project-grid h4 {
   margin-top: 10px;
   font-size: 1.75rem;
   line-height: 1.02;
@@ -730,8 +743,8 @@ h1 .soft {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
-  .project-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .featured-project {
+    grid-template-columns: 1fr;
   }
   /* footer stacks: note on top, then the two short lines */
   .footer-inner {
@@ -758,7 +771,6 @@ h1 .soft {
     width: 104px;
     aspect-ratio: 1;
     object-position: 50% 42%;
-    border-radius: 12px;
   }
   .hero-meta {
     margin-top: 0;
