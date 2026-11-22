@@ -214,6 +214,83 @@ h2 {
   color: var(--accent);
 }
 
+/* Hamburger button: shown by script.js on narrow screens */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  margin-right: -5px;
+}
+.hamburger {
+  width: 25px;
+  height: 3px;
+  background: var(--ink);
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+@media (max-width: 900px) {
+  /* .has-toggle is set by script.js, so without JavaScript the links stay as
+     a row that scrolls sideways */
+  .nav.has-toggle .nav-toggle {
+    display: flex;
+  }
+  .nav.has-toggle nav {
+    position: fixed;
+    top: 61px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 61px);
+    height: calc(100dvh - 61px);
+    margin: 0;
+    padding: 2rem 0;
+    background: rgb(10 13 17 / 0.96);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 6px;
+    /* short screens: scroll the menu rather than cutting off the last links */
+    overflow-y: auto;
+    /* visibility takes the closed menu's links out of the tab order; it flips
+       only after the slide-out finishes */
+    visibility: hidden;
+    transition:
+      left 0.3s ease,
+      visibility 0s linear 0.3s;
+  }
+  .nav.has-toggle nav.active {
+    left: 0;
+    visibility: visible;
+    transition: left 0.3s ease;
+  }
+  .nav.has-toggle nav a {
+    padding: 12px 24px;
+    font-size: 1.5rem;
+  }
+  .nav-toggle.active .hamburger:nth-child(1) {
+    transform: rotate(-45deg) translate(-6px, 8px);
+  }
+  .nav-toggle.active .hamburger:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.active .hamburger:nth-child(3) {
+    transform: rotate(45deg) translate(-4px, -6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hamburger,
+  .nav.has-toggle nav,
+  .nav.has-toggle nav.active {
+    transition: none;
+  }
+}
+
 /* ---------- Hero ---------- */
 .hero {
   background: var(--bg-hero);
@@ -448,6 +525,12 @@ h1 .soft {
 }
 
 /* ---------- Cards ---------- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
 .community-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -476,6 +559,18 @@ h1 .soft {
   margin-top: 12px;
   font-size: 0.98rem;
   color: var(--ink-soft);
+}
+
+.card .card-links {
+  display: flex;
+  gap: 22px;
+  margin-top: auto;
+  padding-top: 20px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .card p a {
@@ -643,6 +738,9 @@ h1 .soft {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   /* footer stacks: note on top, then the two short lines */
   .footer-inner {
     grid-template-columns: 1fr 1fr;
@@ -700,6 +798,7 @@ h1 .soft {
   body {
     font-size: 16.5px;
   }
+  .project-grid,
   .community-grid,
   .principles,
   .breadth-grid {

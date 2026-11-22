@@ -31,8 +31,21 @@
     <header class="nav">
       <div class="wrap nav-inner">
         <a class="nav-name" href="#top">Alex Schultz</a>
-        <nav aria-label="Sections">
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+          hidden
+        >
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
+        </button>
+        <nav id="nav-menu" aria-label="Sections">
           <a href="#expertise">Expertise</a>
+          <a href="#projects">Projects</a>
           <a href="#approach">Approach</a>
           <a href="#testimonials">Testimonials</a>
           <a href="#community">Community</a>
@@ -291,6 +304,59 @@
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="section tinted">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="eyebrow">Projects</p>
+            <h2>Things you can try</h2>
+            <p>
+              A nonprofit's website and two study tools I built for myself. All three are plain
+              HTML, CSS, and JavaScript, with no build step.
+            </p>
+          </header>
+          <div class="project-grid">
+            <article class="card">
+              <p class="card-kicker">Nonprofit website</p>
+              <h3>Sophia's Hope Ranch</h3>
+              <p>
+                The website for the Boerne nonprofit where I serve on the board. I designed and
+                built it, with online donations, appointment booking, and a contact form.
+              </p>
+              <p class="card-links">
+                <a href="https://sophiashoperanch.org/" target="_blank" rel="noopener">Visit</a>
+                <a href="https://github.com/alex-schultz/sophias-hope-ranch" target="_blank" rel="noopener">Source</a>
+              </p>
+            </article>
+            <article class="card">
+              <p class="card-kicker">Study tool</p>
+              <h3>Languages</h3>
+              <p>
+                Flash cards for 155 essential words and phrases in 11 languages, from Arabic to
+                Thai. Each card shows the native spelling and the pronunciation, with notes on
+                formal and informal usage.
+              </p>
+              <p class="card-links">
+                <a href="https://alex-schultz.github.io/languages/" target="_blank" rel="noopener">Try it</a>
+                <a href="https://github.com/alex-schultz/languages" target="_blank" rel="noopener">Source</a>
+              </p>
+            </article>
+            <article class="card">
+              <p class="card-kicker">Study tool</p>
+              <h3>Capitals</h3>
+              <p>
+                Flash cards, a map quiz, and an explorable map for 197 countries and the 50 US
+                states and their capitals. The maps are drawn with D3.
+              </p>
+              <p class="card-links">
+                <a href="https://alex-schultz.github.io/capitals/" target="_blank" rel="noopener">Try it</a>
+                <a href="https://github.com/alex-schultz/capitals" target="_blank" rel="noopener">Source</a>
+              </p>
+            </article>
           </div>
         </div>
       </section>
