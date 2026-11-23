@@ -47,13 +47,11 @@
         }, 350)
       }
       menu.classList.remove('active')
-      toggle.classList.remove('active')
       toggle.setAttribute('aria-expanded', 'false')
     }
 
     toggle.addEventListener('click', () => {
       const open = menu.classList.toggle('active')
-      toggle.classList.toggle('active', open)
       toggle.setAttribute('aria-expanded', String(open))
     })
 
